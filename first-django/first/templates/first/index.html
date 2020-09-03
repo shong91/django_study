@@ -1,0 +1,20 @@
+{% load static %}
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="kr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <p> Hello World !</p>
+    <img src="{% static 'first/image.gif' %}" alt="농담곰">
+    <p>{{ current_date }}</p>
+    <!--  |date:띄어쓰기 주의-->
+    <p>{{ current_date|date:"Y년 m월 d일 H시 i분 s초" }}</p>
+
+    <!--urls.py 의 path name="" property 로 값을 가져온다.-->
+    <a href="{% url 'select' %}"> 시작하기 </a>
+
+</body>
+</html>
