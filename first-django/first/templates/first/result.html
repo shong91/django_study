@@ -1,14 +1,12 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html lang="kr">
-<head>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>Result </title>
-</head>
-<body>
-    <ul>
-        {% for number in numbers %}
-        <li>{{ number }}</li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+{% extends 'first/base.html' %}
+{% load static %}
+{% block content %}
+    <h3> 추천 번호는 다음과 같습니다. </h3>
+    <div style="text-align: left; ">
+        <ul>
+            {% for number in numbers %}
+            <li>{{ number }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
