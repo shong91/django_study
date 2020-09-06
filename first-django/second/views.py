@@ -16,8 +16,7 @@ def create(request):
     if request.method == 'POST':
         form = PostForm(request.POST)
         if form.is_valid():
-            # 레코드를 생성하는 코드 필요
-            form.save()
+            form.save() # 레코드 생성
         return HttpResponseRedirect('/second/list/')
 
     form = PostForm()
