@@ -25,4 +25,25 @@
 
 상기 프로세스를 통일성있게 테이블에 연결되도록 자동으로 처리해주는 것이 Django Model의 역할. 
 ```
- 
+
+
+
+
+MVC pattern             MTV pattern
+Model                   Model (model.py)
+View                    Template (templates/*)
+Controller              View (views.py)
+
+
+Request                 Response
+
+client                  server
+
+Process
+1) request (url GET)
+2) request 받음
+3) url conf
+4) url mapping view 결정 (urls.py)
+5) execute method (views.py) 
+6) render => html
+7) response

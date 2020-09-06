@@ -1,0 +1,9 @@
+<form action="{% url 'create' %}" method="POST">
+    {% csrf_token %}
+    <table>
+            {{ form.as_table }}
+    </table>
+  <!--  {{ form }}-->
+    <button type="submit"> 제출 </button>
+
+</form>
