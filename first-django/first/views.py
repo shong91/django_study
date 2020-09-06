@@ -12,7 +12,7 @@ def index(request):
     now = datetime.now()
     # 동적으로 view 메서드에서 정리한 변수를 삽입
     context = {
-                'current_date': now,
+        'current_date': now,
     }
 
     return render(request, 'first/index.html', context)

@@ -20,3 +20,9 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+# 웹앱 생성>python manage.py startapp first(webapp name)
+# 서버 실행>python manage.py runserver
+# 마이그레이션>python manage.py makemigrations
+# model.py 의 모델 클래스들을 database 엔진에 맞는 형태로 코드를 정해주기 위한 마이그레이션. => \0001_initial.py 생성
+# 마이그레이트>python manage.py migrate (database 생성 완료)
