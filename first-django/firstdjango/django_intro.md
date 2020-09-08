@@ -47,3 +47,10 @@ Process
 5) execute method (views.py) 
 6) render => html
 7) response
+
+
+
+ORM(Object-Relational Mapping)
+하나의 클래스가 실제 자료구조에 연동된다. ?
+(모델클래스)    (DB스키마)
+
