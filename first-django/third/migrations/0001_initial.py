@@ -23,6 +23,7 @@ class Migration(migrations.Migration):
         ),
     ]
 
+# python manage.py shell
 # >>> Restaurant.objects.filter(name='Deli Shsop').values()
 # <QuerySet []>
 # >>> Restaurant.objects.exclude(name='Deli Shop').values()
