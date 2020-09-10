@@ -1,8 +1,9 @@
-from django.shortcuts import render, get_object_or_404
-from third.models import Restaurant
+from django.shortcuts import render, get_object_or_404, redirect
+from third.models import Restaurant, Review
 from django.core.paginator import Paginator
-from third.forms import RestaurantForm
+from third.forms import RestaurantForm, ReviewForm
 from django.http import HttpResponseRedirect
+
 
 # Create your views here.
 def list(request):
@@ -54,10 +55,11 @@ def update(request):
     return HttpResponseRedirect('/third/list/')
 
 
-def detail(request):
-    if 'id' in request.GET:
-        item = get_object_or_404(Restaurant, pk=request.GET.get('id'))
-        return render(request, 'third/detail.html', {'item': item})
+def detail(request, id):
+    if id is not None:
+        item = get_object_or_404(Restaurant, pk=id)
+        reviews = Review.objects.filter(restaurant=item).all()
+        return render(request, 'third/detail.html', {'item': item, 'reviews': reviews})
     return HttpResponseRedirect('/third/list/')
 
 
@@ -66,3 +68,24 @@ def delete(request):
         item = get_object_or_404(Restaurant, pk=request.GET.get('id'))
         item.delete()
     return HttpResponseRedirect('/third/list/')
+
+
+# 리뷰 ==================================================================================================================
+def review_create(request, restaurant_id):
+    # 리뷰 저장
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            new_item = form.save()
+        return redirect('restaurant-detail', id=restaurant_id)
+
+    # 리뷰 폼 - restaurant id 는 폼 초기에 설정되기를 원해
+    item = get_object_or_404(Restaurant, pk=restaurant_id)
+    form = ReviewForm(initial={'restaurant': item})
+    return render(request, 'third/review_create.html', {'form': form, 'item': item})
+
+
+def review_delete(request, restaurant_id, review_id):
+    item = get_object_or_404(Review, pk=review_id)
+    item.delete()
+    return redirect('restaurant-detail', id=restaurant_id)
