@@ -49,8 +49,16 @@ Process
 7) response
 
 
-
+##
 ORM(Object-Relational Mapping)
 하나의 클래스가 실제 자료구조에 연동된다. ?
 (모델클래스)    (DB스키마)
+
+##
+릴레이션(Relation)
+Article <=======> User
+1) Many to Many
+2) Many to One
+3) One to One
+
 
