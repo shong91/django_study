@@ -61,4 +61,6 @@ Article <=======> User
 2) Many to One
 3) One to One
 
+조인(Join) 
+
 
